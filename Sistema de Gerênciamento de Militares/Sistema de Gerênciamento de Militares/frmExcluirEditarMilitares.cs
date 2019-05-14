@@ -17,11 +17,19 @@ namespace Sistema_de_Gerênciamento_de_Militares
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BPesquisar_Click(object sender, EventArgs e)
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+
+        }
+
+        private void BExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
