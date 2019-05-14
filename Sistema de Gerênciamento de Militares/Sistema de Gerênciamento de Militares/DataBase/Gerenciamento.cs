@@ -21,7 +21,7 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
                                VALUES (DEFAULT
                                     ,  {militar}
                                     ,  '{motivo}'
-                                    ,  '{saida.ToString("yyyy-M-dd hh:mm:ss")}'
+                                    ,  '{saida.ToString("yyyy-MM-dd hh:mm:ss")}'
                                     ,  '{retorno.ToString("yyyy-M-dd hh:mm:ss")}');";
 
             return My.ExecuteNonQuery(sql);
