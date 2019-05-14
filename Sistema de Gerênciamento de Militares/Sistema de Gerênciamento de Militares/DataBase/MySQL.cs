@@ -164,8 +164,25 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
                 return String.Empty;
             }
         }
-        
+
         #endregion
 
+        public DataTable GetDataTable(string sql)
+        {
+            PreparaMySQL(sql);
+
+            DataTable retData = new DataTable();
+            try
+            {
+                MySqlDataAdapter DataAdapter = new MySqlDataAdapter(Command);
+
+                DataAdapter.Fill(retData);
+            }
+            catch (Exception e)
+            {
+                throw (new Exception(e.Message));
+            }
+            return retData;
+        }
     }
 }
