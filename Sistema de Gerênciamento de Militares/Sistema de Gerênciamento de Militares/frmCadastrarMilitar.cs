@@ -8,49 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Sistema_de_Gerênciamento_de_Militares.DataBase;
 
 namespace Sistema_de_Gerênciamento_de_Militares
 {
     public partial class frmCadastrarMilitar : Form
     {
+        private Militar militar;
+
         public frmCadastrarMilitar()
         {
             InitializeComponent();
+
+            militar = new Militar();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection(@"server=127.0.0.1;database=gerenciamento militar;Uid=root;");
-
-            conn.Open();
             if (rdGrad1.Checked == true)
-              txtGrad.Text = "Cb";
+                txtGrad.Text = "Cb";
             else
-              txtGrad.Text = "Sd";
+                txtGrad.Text = "Sd";
 
+            if (militar.AdicionaMilitar(txtGrad.Text, txtNome.Text))
+            {
+                MessageBox.Show("Militar salvo com sucesso!");
+            }
 
-            string comando = "INSERT INTO MILITAR(GRADUACAO, NOME)" + "VALUES ('" + txtGrad.Text + "','" + txtNome.Text + "')";
-
-            MySqlCommand cmd = new MySqlCommand(comando, conn);
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-
-            MessageBox.Show("CADASTRO SALVO COM SUCESSO!");
-
-            graduacao11.Text = "";
-
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            this.Close();
         }
     }
 }
