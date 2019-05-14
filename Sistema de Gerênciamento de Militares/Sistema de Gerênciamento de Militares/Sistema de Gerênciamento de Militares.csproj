@@ -62,6 +62,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBase\Militar.cs" />
+    <Compile Include="DataBase\MySQL.cs" />
+    <Compile Include="DataBase\Usuario.cs" />
     <Compile Include="frmExcluirEditarMilitares.cs">
       <SubType>Form</SubType>
     </Compile>
