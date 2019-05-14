@@ -18,32 +18,26 @@ namespace Sistema_de_Gerênciamento_de_Militares
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
-            frmGerenciarMilitar GerenciarMilitar= new frmGerenciarMilitar();
-            this.Hide();
+        {
+            frmGerenciarMilitar GerenciarMilitar = new frmGerenciarMilitar();
             GerenciarMilitar.ShowDialog();
         }
-
-
 
         private void sobreToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmSobre Sobre = new frmSobre();
-            this.Hide();
             Sobre.ShowDialog();
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmConsultar Consultar = new frmConsultar();
-            this.Hide();
             Consultar.ShowDialog();
         }
 
         private void relatórioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmGerarRelatorio Relatorios = new frmGerarRelatorio();
-            this.Hide();
             Relatorios.ShowDialog();
         }
 
@@ -54,8 +48,7 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         private void novoUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastrarUsuario CadastrarUsuario= new frmCadastrarUsuario();
-            this.Hide();
+            frmCadastrarUsuario CadastrarUsuario = new frmCadastrarUsuario();
             CadastrarUsuario.ShowDialog();
         }
 
@@ -63,37 +56,26 @@ namespace Sistema_de_Gerênciamento_de_Militares
         {
             if (MessageBox.Show("Tem Certeza?", " Sair ", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                MessageBox.Show("Saindo", "....");
+                this.Close();
             }
-            else
-            {
-                frmTelaInicial TelaInicial = new frmTelaInicial();
-                this.Hide();
-                TelaInicial.ShowDialog();
-            }
-            Application.Exit();
-
         }
 
         private void cadastrarMilitaresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCadastrarMilitar CadastrarMilitar= new frmCadastrarMilitar();
-            this.Hide();
+            frmCadastrarMilitar CadastrarMilitar = new frmCadastrarMilitar();
             CadastrarMilitar.ShowDialog();
         }
 
         private void excluirUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmConsultarUsuário ConsultarUsuário = new frmConsultarUsuário();
-            this.Hide();
-            ConsultarUsuário.ShowDialog();
+            frmConsultarUsuário ConsultarUsuario = new frmConsultarUsuário();
+            ConsultarUsuario.ShowDialog();
         }
 
         private void excluirEditarMilitaresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmExcluirEditarMilitares ExlcuirEditarMilitares = new frmExcluirEditarMilitares();
-            this.Hide();
             ExlcuirEditarMilitares.ShowDialog();
-        }  
+        }
     }
 }
