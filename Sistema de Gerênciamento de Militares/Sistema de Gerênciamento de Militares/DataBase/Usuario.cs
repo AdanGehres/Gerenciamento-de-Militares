@@ -20,7 +20,7 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             bool ret = false;
             string sql = $@"SELECT ID
                                FROM usuario
-                               WHERE usuario = '{user}'
+                               WHERE nome = '{user}'
                                  AND senha = '{pass}';";
 
             My.ExecuteReader(sql);
