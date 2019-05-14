@@ -8,44 +8,117 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Sistema_de_Gerênciamento_de_Militares.DataBase;
 
 namespace Sistema_de_Gerênciamento_de_Militares
 {
     public partial class frmGerenciarMilitar : Form
     {
+        /// <summary>
+        /// Objeto com os métodos da tabela 'militar' no BD
+        /// </summary>
+        private readonly Militar militar;
+
+        /// <summary>
+        /// Objeto com os métodos da tabela 'gerenciamento' no BD
+        /// </summary>
+        private readonly Gerenciamento gerenciamento;
+
         public frmGerenciarMilitar()
         {
             InitializeComponent();
+
+            militar = new Militar();
+            gerenciamento = new Gerenciamento();
+
+            cmbNomedeGuerra = militar.CBoxNomeMilitares(cmbNomedeGuerra);
+            LimparTela();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        #region Botões
+        private void BSalvar(object sender, EventArgs e)
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            if (TelaValida())
+            {
+                DateTime saida = MontaData(dtpData.Value, dtpSaida.Value);
+                DateTime volta = MontaData(dtpData.Value, dtpVolta.Value);
+
+                gerenciamento.Insert(militar: 1,
+                                     motivo: txtMotivo.Text,
+                                     saida: saida,
+                                     retorno: volta);
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BLimpar_Click(object sender, EventArgs e)
         {
-            
-
+            LimparTela();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion
+
+        #region Métodos Privados
+
+        private DateTime MontaData(DateTime data, DateTime hora)
+        {
+            return new DateTime(data.Year, data.Month, data.Day, hora.Hour, hora.Minute, hora.Second);
+        }
+
+        private void LimparTela()
         {
             cmbNomedeGuerra.Text = "";
-            txtData.Text = "";
+            dtpData.Value = DateTime.Now;
             txtMotivo.Text = "";
-            txtSaida.Text =  "";
-            txtVolta.Text = "";
-            
-
+            dtpSaida.Value = Convert.ToDateTime("00:00");
+            dtpVolta.Value = Convert.ToDateTime("00:00");
         }
 
-        private void cmbNomedeGuerra_SelectedIndexChanged(object sender, EventArgs e)
+        private bool TelaValida()
         {
-            
+            if (!CampoPreenchido(cmbNomedeGuerra, "Nome de Guerra")) return false;
+            if (!CampoPreenchido(dtpData, "Data de Saída")) return false;
+            if (!CampoPreenchido(txtMotivo, "Motivo")) return false;
+            if (!CampoPreenchido(dtpSaida, "Horário de Saída")) return false;
+            if (!CampoPreenchido(dtpVolta, "Horário de Volta")) return false;
 
+            return true;
         }
+
+        private bool CampoPreenchido(DateTimePicker obj, string campo)
+        {
+            //Se o campo está preenchido, retorna verdadeiro
+            if (!string.IsNullOrEmpty(obj.Value.ToString())) return true;
+
+            MessageBox.Show($"Campo {campo} não preenchido!");
+            obj.Focus();
+            return false;
+        }
+
+        private bool CampoPreenchido(ComboBox obj, string campo)
+        {
+            //Se o campo está preenchido, retorna verdadeiro
+            if (!string.IsNullOrEmpty(obj.Text)) return true;
+
+            MessageBox.Show($"Campo {campo} não preenchido!");
+            obj.Focus();
+            return false;
+        }
+
+        private bool CampoPreenchido(TextBox obj, string campo)
+        {
+            //Se o campo está preenchido, retorna verdadeiro
+            if (!string.IsNullOrEmpty(obj.Text)) return true;
+
+            MessageBox.Show($"Campo '{campo}' não preenchido!");
+            obj.Focus();
+            return false;
+        }
+
+        #endregion
     }
 }
