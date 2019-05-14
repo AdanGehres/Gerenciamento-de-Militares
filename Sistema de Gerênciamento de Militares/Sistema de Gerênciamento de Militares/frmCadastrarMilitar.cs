@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Sistema_de_Gerênciamento_de_Militares
 {
-    public partial class frmCadastrarUsuario : Form
+    public partial class frmCadastrarMilitar : Form
     {
-        public frmCadastrarUsuario()
+        public frmCadastrarMilitar()
         {
             InitializeComponent();
         }
@@ -27,17 +27,16 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-
             MySqlConnection conn = new MySqlConnection(@"server=127.0.0.1;database=gerenciamento militar;Uid=root;");
 
             conn.Open();
+            if (rdGrad1.Checked == true)
+              txtGrad.Text = "Cb";
+            else
+              txtGrad.Text = "Sd";
 
-           
 
-            string comando = "INSERT INTO USUARIO(USUARIO, SENHA)"+ "VALUES ('"+txtUsuario.Text + "','"+txtSenha.Text +"')";
-
-           
+            string comando = "INSERT INTO MILITAR(GRADUACAO, NOME)" + "VALUES ('" + txtGrad.Text + "','" + txtNome.Text + "')";
 
             MySqlCommand cmd = new MySqlCommand(comando, conn);
 
@@ -46,6 +45,8 @@ namespace Sistema_de_Gerênciamento_de_Militares
             conn.Close();
 
             MessageBox.Show("CADASTRO SALVO COM SUCESSO!");
+
+            graduacao11.Text = "";
 
             frmTelaInicial TelaInicial = new frmTelaInicial();
             this.Hide();

@@ -32,9 +32,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.16\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,35 +62,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmExcluirEditarMilitares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExcluirEditarMilitares.Designer.cs">
+      <DependentUpon>frmExcluirEditarMilitares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarUsuário.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarUsuário.Designer.cs">
+      <DependentUpon>frmConsultarUsuário.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastrarMilitar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastrarMilitar.Designer.cs">
+      <DependentUpon>frmCadastrarMilitar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCadastrarUsuario.Designer.cs">
       <DependentUpon>frmCadastrarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRelatorioAnual.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRelatorioAnual.Designer.cs">
-      <DependentUpon>frmRelatorioAnual.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmRelatorioMensal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRelatorioMensal.Designer.cs">
-      <DependentUpon>frmRelatorioMensal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmRelatorioSemanal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRelatorioSemanal.Designer.cs">
-      <DependentUpon>frmRelatorioSemanal.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRelatorio.Designer.cs">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGerarRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGerarRelatorio.Designer.cs">
+      <DependentUpon>frmGerarRelatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultar.cs">
       <SubType>Form</SubType>
@@ -88,23 +110,11 @@
     <Compile Include="frmSobre.Designer.cs">
       <DependentUpon>frmSobre.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExcluir.cs">
+    <Compile Include="frmGerenciarMilitar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmExcluir.Designer.cs">
-      <DependentUpon>frmExcluir.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEditar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEditar.Designer.cs">
-      <DependentUpon>frmEditar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAdicionar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdicionar.Designer.cs">
-      <DependentUpon>frmAdicionar.cs</DependentUpon>
+    <Compile Include="frmGerenciarMilitar.Designer.cs">
+      <DependentUpon>frmGerenciarMilitar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTelaInicial.cs">
       <SubType>Form</SubType>
@@ -121,20 +131,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmExcluirEditarMilitares.resx">
+      <DependentUpon>frmExcluirEditarMilitares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarUsuário.resx">
+      <DependentUpon>frmConsultarUsuário.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastrarMilitar.resx">
+      <DependentUpon>frmCadastrarMilitar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastrarUsuario.resx">
       <DependentUpon>frmCadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorioAnual.resx">
-      <DependentUpon>frmRelatorioAnual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorioMensal.resx">
-      <DependentUpon>frmRelatorioMensal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorioSemanal.resx">
-      <DependentUpon>frmRelatorioSemanal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmRelatorio.resx">
       <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerarRelatorio.resx">
+      <DependentUpon>frmGerarRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultar.resx">
       <DependentUpon>frmConsultar.cs</DependentUpon>
@@ -142,14 +155,8 @@
     <EmbeddedResource Include="frmSobre.resx">
       <DependentUpon>frmSobre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExcluir.resx">
-      <DependentUpon>frmExcluir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditar.resx">
-      <DependentUpon>frmEditar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAdicionar.resx">
-      <DependentUpon>frmAdicionar.cs</DependentUpon>
+    <EmbeddedResource Include="frmGerenciarMilitar.resx">
+      <DependentUpon>frmGerenciarMilitar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -162,10 +169,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="frmTelaInicial.resx">
       <DependentUpon>frmTelaInicial.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -178,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-grey-camouflage-vector.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

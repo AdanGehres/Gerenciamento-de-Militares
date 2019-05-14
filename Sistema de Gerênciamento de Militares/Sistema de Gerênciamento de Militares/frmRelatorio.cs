@@ -17,33 +17,9 @@ namespace Sistema_de_Gerênciamento_de_Militares
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            frmRelatorioSemanal RelatorioSemanal = new frmRelatorioSemanal();
-            this.Hide();
-            RelatorioSemanal.ShowDialog();
-        }
-
-        private void btRelatorioMensal_Click(object sender, EventArgs e)
-        {
-
-            frmRelatorioMensal RelatorioMensal = new frmRelatorioMensal();
-            this.Hide();
-            RelatorioMensal.ShowDialog();
-        }
-
-        private void btRelatorioAnual_Click(object sender, EventArgs e)
-        {
-
-            frmRelatorioAnual RelatorioAnual = new frmRelatorioAnual();
-            this.Hide();
-            RelatorioAnual.ShowDialog();
-        }
-
         private void btVoltar_Click(object sender, EventArgs e)
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
+            frmGerarRelatorio TelaInicial = new frmGerarRelatorio();
             this.Hide();
             TelaInicial.ShowDialog();
         }

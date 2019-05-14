@@ -10,16 +10,28 @@ using System.Windows.Forms;
 
 namespace Sistema_de_Gerênciamento_de_Militares
 {
-    public partial class frmRelatorioSemanal : Form
+    public partial class frmGerarRelatorio : Form
     {
-        public frmRelatorioSemanal()
+        public frmGerarRelatorio()
         {
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            frmRelatorio GerarRelatorio = new frmRelatorio();
+            this.Hide();
+            GerarRelatorio.ShowDialog();
+        }
+
+        
+
+        
+
         private void btVoltar_Click(object sender, EventArgs e)
         {
-            frmRelatorio TelaInicial = new frmRelatorio();
+            frmTelaInicial TelaInicial = new frmTelaInicial();
             this.Hide();
             TelaInicial.ShowDialog();
         }

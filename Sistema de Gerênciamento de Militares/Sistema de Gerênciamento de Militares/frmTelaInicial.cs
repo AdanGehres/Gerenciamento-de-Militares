@@ -18,27 +18,13 @@ namespace Sistema_de_Gerênciamento_de_Militares
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            
-            frmAdicionar AdicionarMilitar= new frmAdicionar();
+        {   
+            frmGerenciarMilitar GerenciarMilitar= new frmGerenciarMilitar();
             this.Hide();
-            AdicionarMilitar.ShowDialog();
+            GerenciarMilitar.ShowDialog();
         }
 
-        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmEditar EditarMilitar = new frmEditar();
-            this.Hide();
-            EditarMilitar.ShowDialog();
-        }
 
-        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmExcluir ExcluirMilitar = new frmExcluir();
-            this.Hide();
-            ExcluirMilitar.ShowDialog();
-        }
 
         private void sobreToolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -56,7 +42,7 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         private void relatórioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRelatorio Relatorios = new frmRelatorio();
+            frmGerarRelatorio Relatorios = new frmGerarRelatorio();
             this.Hide();
             Relatorios.ShowDialog();
         }
@@ -88,5 +74,26 @@ namespace Sistema_de_Gerênciamento_de_Militares
             Application.Exit();
 
         }
+
+        private void cadastrarMilitaresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastrarMilitar CadastrarMilitar= new frmCadastrarMilitar();
+            this.Hide();
+            CadastrarMilitar.ShowDialog();
+        }
+
+        private void excluirUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarUsuário ConsultarUsuário = new frmConsultarUsuário();
+            this.Hide();
+            ConsultarUsuário.ShowDialog();
+        }
+
+        private void excluirEditarMilitaresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmExcluirEditarMilitares ExlcuirEditarMilitares = new frmExcluirEditarMilitares();
+            this.Hide();
+            ExlcuirEditarMilitares.ShowDialog();
+        }  
     }
 }

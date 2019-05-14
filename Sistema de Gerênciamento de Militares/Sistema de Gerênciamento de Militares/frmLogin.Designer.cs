@@ -45,18 +45,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(244, 107);
+            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(243, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuário:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(244, 188);
+            this.label2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(243, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 19);
             this.label2.TabIndex = 1;
@@ -66,7 +67,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(4, 23);
+            this.label3.Location = new System.Drawing.Point(23, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(536, 33);
             this.label3.TabIndex = 2;
@@ -74,23 +75,23 @@
             // 
             // txtbUsuarioLogin
             // 
-            this.txtbUsuarioLogin.Location = new System.Drawing.Point(343, 107);
+            this.txtbUsuarioLogin.Location = new System.Drawing.Point(341, 93);
             this.txtbUsuarioLogin.Name = "txtbUsuarioLogin";
-            this.txtbUsuarioLogin.Size = new System.Drawing.Size(197, 22);
+            this.txtbUsuarioLogin.Size = new System.Drawing.Size(188, 22);
             this.txtbUsuarioLogin.TabIndex = 3;
             // 
             // txtbSenhaLogin
             // 
-            this.txtbSenhaLogin.Location = new System.Drawing.Point(343, 188);
+            this.txtbSenhaLogin.Location = new System.Drawing.Point(341, 163);
             this.txtbSenhaLogin.Name = "txtbSenhaLogin";
             this.txtbSenhaLogin.PasswordChar = '*';
-            this.txtbSenhaLogin.Size = new System.Drawing.Size(197, 22);
+            this.txtbSenhaLogin.Size = new System.Drawing.Size(188, 22);
             this.txtbSenhaLogin.TabIndex = 4;
             // 
             // btnEntrarLogin
             // 
             this.btnEntrarLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEntrarLogin.Location = new System.Drawing.Point(310, 275);
+            this.btnEntrarLogin.Location = new System.Drawing.Point(331, 234);
             this.btnEntrarLogin.Name = "btnEntrarLogin";
             this.btnEntrarLogin.Size = new System.Drawing.Size(87, 40);
             this.btnEntrarLogin.TabIndex = 5;
@@ -101,7 +102,7 @@
             // btnSairLogin
             // 
             this.btnSairLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSairLogin.Location = new System.Drawing.Point(432, 275);
+            this.btnSairLogin.Location = new System.Drawing.Point(442, 234);
             this.btnSairLogin.Name = "btnSairLogin";
             this.btnSairLogin.Size = new System.Drawing.Size(87, 40);
             this.btnSairLogin.TabIndex = 7;
@@ -112,7 +113,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 49);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 53);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(225, 338);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,8 +123,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(343, 339);
+            this.label4.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(346, 326);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 16);
             this.label4.TabIndex = 11;
@@ -132,8 +133,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(320, 358);
+            this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(328, 342);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(181, 16);
             this.label5.TabIndex = 12;
@@ -143,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 428);
+            this.ClientSize = new System.Drawing.Size(600, 428);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);

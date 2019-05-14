@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Sistema_de_Gerênciamento_de_Militares
 {
-    public partial class frmExcluir : Form
+    public partial class frmExcluirEditarMilitares : Form
     {
-        public frmExcluir()
+        public frmExcluirEditarMilitares()
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
