@@ -34,11 +34,10 @@ namespace Sistema_de_Gerênciamento_de_Militares
         {
             if (user.UsuarioValido(txtbUsuarioLogin.Text, txtbSenhaLogin.Text))
             {
-                this.DialogResult = DialogResult.OK;
                 frmTelaInicial TelaInicial = new frmTelaInicial();
                 this.Hide();
                 TelaInicial.ShowDialog();
-
+                this.Close();
             }
             else
             {
