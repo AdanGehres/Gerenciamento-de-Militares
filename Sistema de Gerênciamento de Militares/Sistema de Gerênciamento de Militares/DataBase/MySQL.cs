@@ -49,7 +49,14 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
 
         public void FechaConexao()
         {
-            Connection.Close();
+            try
+            {
+                Connection.Close();
+            }
+            catch
+            {
+
+            }
         }
 
         private void PreparaMySQL(string sql)
@@ -182,6 +189,9 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             {
                 throw (new Exception(e.Message));
             }
+
+            FechaConexao();
+
             return retData;
         }
     }
