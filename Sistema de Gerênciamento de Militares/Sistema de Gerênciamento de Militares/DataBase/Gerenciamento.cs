@@ -45,6 +45,7 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
 
             dt = My.GetDataTable(sql);
 
+            My.FechaConexao();
             return dt;
         }
     }
