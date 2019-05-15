@@ -36,16 +36,19 @@ namespace Sistema_de_Gerênciamento_de_Militares
             string dados = "";
 
             //criando a variavel para paragrafo
-            Paragraph paragrafo = new Paragraph(dados, new Font(Font.NORMAL, 14));
-            //etipulando o alinhamneto
-            paragrafo.Alignment = Element.ALIGN_JUSTIFIED;
-            //Alinhamento Justificado
-            //adicioando texto
+            Paragraph paragrafo = new Paragraph(dados, new Font(Font.NORMAL, 14))
+            {
+                Alignment = Element.ALIGN_JUSTIFIED
+            };
+
+
             paragrafo.Add("TESTE TESTE TESTE");
-            //acidionado paragrafo ao documento
+            
             doc.Add(paragrafo);
-            //fechando documento para que seja salva as alteraçoes.
+            
             doc.Close();
+
+            System.Diagnostics.Process.Start(caminho);
         }
     }
 }
