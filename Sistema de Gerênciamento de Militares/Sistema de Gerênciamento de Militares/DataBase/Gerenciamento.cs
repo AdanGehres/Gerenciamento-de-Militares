@@ -28,11 +28,19 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             return My.ExecuteNonQuery(sql);
         }
 
+        public bool Delete(string id)
+        {
+            string sql = $@"DELETE FROM gerenciamento WHERE id = {id};";
+
+            return My.ExecuteNonQuery(sql);
+        }
+
         public DataTable GetTable(int id = 0)
         {
             DataTable dt = new DataTable();
 
-            string sql = $@"SELECT CONCAT(m.graduacao, ' ', m.nome) AS nome
+            string sql = $@"SELECT g.id
+                                 , CONCAT(m.graduacao, ' ', m.nome) AS nome
                                  , g.motivo AS motivo
                                  , g.saida AS saida
                                  , g.retorno AS retorno

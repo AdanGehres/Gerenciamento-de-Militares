@@ -78,7 +78,7 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         private void LimparTela()
         {
-            cmbNomedeGuerra.Text = "";
+            cmbNomedeGuerra.SelectedIndex = -1;
             dtpData.Value = DateTime.Now;
             txtMotivo.Text = "";
             dtpSaida.Value = Convert.ToDateTime("00:00");

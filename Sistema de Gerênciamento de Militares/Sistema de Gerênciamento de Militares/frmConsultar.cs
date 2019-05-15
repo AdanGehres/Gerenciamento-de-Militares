@@ -24,28 +24,45 @@ namespace Sistema_de_Gerênciamento_de_Militares
             gerenciamento = new Gerenciamento();
 
             comboBox4 = militar.CBoxNomeMilitares(comboBox4);
-            PreencherDGV();
+            AtualizaDataGrid();
         }
 
         #region Métodos Privados
 
-        private void PreencherDGV()
+        private void AtualizaDataGrid()
         {
-            dataGridView1.DataSource = gerenciamento.GetTable();
+            if (!string.IsNullOrEmpty(comboBox4.Text))
+            {
+                int id = militar.GetIdByName(comboBox4.Text);
+                dataGridView1.DataSource = gerenciamento.GetTable(id);
+            }
+            else
+            {
+                dataGridView1.DataSource = gerenciamento.GetTable();
+            }
         }
 
         #endregion
 
         #region Botões
 
-        private void BPesquisar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BExcluir_Click(object sender, EventArgs e)
         {
+            //Verifica se usuário selecionou alguma linha
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
 
+                if (gerenciamento.Delete(id))
+                {
+                    MessageBox.Show("Registro deletado com sucesso!");
+                    AtualizaDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Houve um erro ao deletar o registro");
+                }
+            }
         }
 
         private void BVoltar_Click(object sender, EventArgs e)
@@ -54,5 +71,10 @@ namespace Sistema_de_Gerênciamento_de_Militares
         }
 
         #endregion
+
+        private void ComboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AtualizaDataGrid();
+        }
     }
 }

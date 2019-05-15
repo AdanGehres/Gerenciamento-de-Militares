@@ -69,6 +69,9 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
 
         public ComboBox CBoxNomeMilitares(ComboBox cBox)
         {
+            //Adiciona item em branco no início
+            cBox.Items.Add(string.Empty);
+
             string sql = $@"SELECT nome FROM MILITAR";
 
             My.ExecuteReader(sql);
