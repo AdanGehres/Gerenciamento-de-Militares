@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,26 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
         {
             string sql = $@"INSERT INTO MILITAR (GRADUACAO, NOME)
                                          VALUES ('{grad}', '{nome}')";
+
+            return My.ExecuteNonQuery(sql);
+        }
+
+        public DataTable GetDataTable()
+        {
+            DataTable dt = new DataTable();
+
+            string sql = "SELECT * FROM MILITAR;";
+
+            dt = My.GetDataTable(sql);
+
+            My.FechaConexao();
+
+            return dt;
+        }
+
+        public bool ExcluiMilitar(string id)
+        {
+            string sql = $@"DELETE FROM MILITAR WHERE ID = {id};";
 
             return My.ExecuteNonQuery(sql);
         }
