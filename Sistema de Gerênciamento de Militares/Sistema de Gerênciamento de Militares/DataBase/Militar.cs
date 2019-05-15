@@ -25,6 +25,28 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             return My.ExecuteNonQuery(sql);
         }
 
+        public int GetIdByName(string nome)
+        {
+            int id = 0;
+
+            string sql = $@"SELECT id
+                               FROM MILITAR
+                               WHERE NOME = '{nome}'
+                               ORDER BY id DESC
+                               LIMIT 1;";
+
+            My.ExecuteReader(sql);
+
+            if (My.HasRows())
+            {
+                My.ReadNextRecord();
+                id = My.GetInt("id");
+            }
+
+            My.FechaConexao();
+            return id;
+        }
+
         public DataTable GetDataTable()
         {
             DataTable dt = new DataTable();
@@ -58,6 +80,8 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
                     cBox.Items.Add(My.GetString("nome"));
                 }
             }
+
+            My.FechaConexao();
             return cBox;
         }
     }
