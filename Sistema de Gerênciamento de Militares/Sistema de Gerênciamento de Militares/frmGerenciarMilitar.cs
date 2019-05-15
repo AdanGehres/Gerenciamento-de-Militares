@@ -43,10 +43,17 @@ namespace Sistema_de_Gerênciamento_de_Militares
                 DateTime saida = MontaData(dtpData.Value, dtpSaida.Value);
                 DateTime volta = MontaData(dtpData.Value, dtpVolta.Value);
 
-                gerenciamento.Insert(militar: 1,
-                                     motivo: txtMotivo.Text,
-                                     saida: saida,
-                                     retorno: volta);
+                int id = militar.GetIdByName(cmbNomedeGuerra.Text);
+
+                if(gerenciamento.Insert(militar: id, motivo: txtMotivo.Text, saida: saida, retorno: volta))
+                {
+                    MessageBox.Show("Gerenciamento salvo com sucesso!");
+                    LimparTela();
+                }
+                else
+                {
+                    MessageBox.Show("Houve um erro ao salvar");
+                }
             }
         }
 
