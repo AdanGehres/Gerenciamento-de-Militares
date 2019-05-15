@@ -15,6 +15,13 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             My = new MySQL();
         }
 
+        public bool AdicionaUsuario(string nome, string senha)
+        {
+            string sql = $"INSERT INTO usuario VALUES(DEFAULT, '{nome}', '{senha}');";
+
+            return My.ExecuteNonQuery(sql);
+        }
+
         public bool UsuarioValido(string user, string pass)
         {
             bool ret = false;

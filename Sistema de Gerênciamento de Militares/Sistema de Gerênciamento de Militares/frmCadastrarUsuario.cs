@@ -8,48 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Sistema_de_Gerênciamento_de_Militares.DataBase;
 
 namespace Sistema_de_Gerênciamento_de_Militares
 {
     public partial class frmCadastrarUsuario : Form
     {
+        private Usuario user;
+
         public frmCadastrarUsuario()
         {
             InitializeComponent();
+
+            user = new Usuario();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BVoltar_Click(object sender, EventArgs e)
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BSalvar_Click(object sender, EventArgs e)
         {
-
-
-            MySqlConnection conn = new MySqlConnection(@"server=127.0.0.1;database=gerenciamento militar;Uid=root;");
-
-            conn.Open();
-
-           
-
-            string comando = "INSERT INTO USUARIO(USUARIO, SENHA)"+ "VALUES ('"+txtUsuario.Text + "','"+txtSenha.Text +"')";
-
-           
-
-            MySqlCommand cmd = new MySqlCommand(comando, conn);
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-
-            MessageBox.Show("CADASTRO SALVO COM SUCESSO!");
-
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            if (user.AdicionaUsuario(txtUsuario.Text, txtSenha.Text))
+            {
+                MessageBox.Show("Usuário adicionado com sucesso!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Houve um erro ao cadastrar usuário");
+            }
         }
     }
 }
