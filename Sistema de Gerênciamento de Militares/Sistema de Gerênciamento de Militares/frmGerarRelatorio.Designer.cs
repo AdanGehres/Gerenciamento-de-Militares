@@ -44,7 +44,7 @@
             this.btRelatorioSemanal.TabIndex = 11;
             this.btRelatorioSemanal.Text = "Gerar Relatório";
             this.btRelatorioSemanal.UseVisualStyleBackColor = true;
-            this.btRelatorioSemanal.Click += new System.EventHandler(this.button1_Click);
+            this.btRelatorioSemanal.Click += new System.EventHandler(this.BtRelatorioSemanal_Click);
             // 
             // btVoltar
             // 
@@ -55,7 +55,7 @@
             this.btVoltar.TabIndex = 14;
             this.btVoltar.Text = "Voltar";
             this.btVoltar.UseVisualStyleBackColor = true;
-            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
+            this.btVoltar.Click += new System.EventHandler(this.BtVoltar_Click);
             // 
             // pictureBox1
             // 

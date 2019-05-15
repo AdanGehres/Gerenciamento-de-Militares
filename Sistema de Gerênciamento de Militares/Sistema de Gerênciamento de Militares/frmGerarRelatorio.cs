@@ -17,23 +17,15 @@ namespace Sistema_de_Gerênciamento_de_Militares
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtRelatorioSemanal_Click(object sender, EventArgs e)
         {
-
-            frmRelatorio GerarRelatorio = new frmRelatorio();
-            this.Hide();
-            GerarRelatorio.ShowDialog();
+            RelatorioSemanal rel = new RelatorioSemanal();
+            rel.GeraRelatorio();
         }
 
-        
-
-        
-
-        private void btVoltar_Click(object sender, EventArgs e)
+        private void BtVoltar_Click(object sender, EventArgs e)
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            this.Close();
         }
     }
 }
