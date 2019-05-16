@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,26 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
 
             return My.ExecuteNonQuery(sql);
         }
+
+        public bool DeletaUsuario(string id)
+        {
+            string sql = $"DELETE FROM usuario WHERE id = {id};";
+
+            return My.ExecuteNonQuery(sql);
+        }
+
+        public DataTable GetDataTable()
+        {
+            DataTable dt = new DataTable();
+
+            string sql = "SELECT id, nome FROM usuario;";
+
+            dt = My.GetDataTable(sql);
+
+            My.FechaConexao();
+            return dt;
+        }
+
 
         public bool UsuarioValido(string user, string pass)
         {

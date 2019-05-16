@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_de_Gerênciamento_de_Militares.DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,45 @@ namespace Sistema_de_Gerênciamento_de_Militares
 {
     public partial class frmConsultarUsuário : Form
     {
+
+        private Usuario user;
+
         public frmConsultarUsuário()
         {
             InitializeComponent();
+
+            user = new Usuario();
+
+            AtualizaDataGrid();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AtualizaDataGrid()
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            dataGridView1.DataSource = user.GetDataTable();
+        }
+
+        private void BVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BExcluir_Click(object sender, EventArgs e)
+        {
+            //Verifica se o usuário selecionou uma linha
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+                if (user.DeletaUsuario(id))
+                {
+                    MessageBox.Show("Usuário excluído com sucesso");
+                    AtualizaDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Houve um erro ao excluir usuário");
+                }
+            }
         }
     }
 }
