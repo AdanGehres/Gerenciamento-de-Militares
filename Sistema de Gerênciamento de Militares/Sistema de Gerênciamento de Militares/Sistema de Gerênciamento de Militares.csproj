@@ -129,7 +129,6 @@
     <Compile Include="frmTelaInicial.Designer.cs">
       <DependentUpon>frmTelaInicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTelaIncial.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
