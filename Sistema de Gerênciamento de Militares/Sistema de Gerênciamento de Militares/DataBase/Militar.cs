@@ -31,7 +31,7 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
 
             string sql = $@"SELECT id
                                FROM MILITAR
-                               WHERE NOME = '{nome}'
+                               WHERE CONCAT(graduacao, ' ', nome) = '{nome}'
                                ORDER BY id DESC
                                LIMIT 1;";
 
@@ -72,7 +72,9 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             //Adiciona item em branco no início
             cBox.Items.Add(string.Empty);
 
-            string sql = $@"SELECT nome FROM MILITAR";
+            string sql = $@"SELECT CONCAT(graduacao, ' ', nome) as nome
+                               FROM MILITAR
+                               ORDER BY graduacao, nome";
 
             My.ExecuteReader(sql);
 
