@@ -16,18 +16,41 @@ namespace Sistema_de_Gerênciamento_de_Militares
     {
         private Militar militar;
 
+        private int idMilitar = 0;
+
         public frmCadastrarMilitar()
         {
             InitializeComponent();
-
             militar = new Militar();
         }
 
+        public frmCadastrarMilitar(DTOMilitar militarEdit)
+        {
+            InitializeComponent();
+            militar = new Militar();
+
+            idMilitar = militarEdit.Id;
+            txtNome.Text = militarEdit.Nome;
+
+            rdGrad1.Checked = militarEdit.Graduacao == "Cb";
+            rdGrad2.Checked = militarEdit.Graduacao == "Sd";
+        }
+
+        /// <summary>
+        /// Voltar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Salvar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (rdGrad1.Checked == true)
@@ -35,7 +58,18 @@ namespace Sistema_de_Gerênciamento_de_Militares
             else
                 txtGrad.Text = "Sd";
 
-            if (militar.AdicionaMilitar(txtGrad.Text, txtNome.Text))
+            bool sucesso;
+
+            if (idMilitar > 0) //Edição
+            {
+                sucesso = militar.EditaMilitar(idMilitar, txtGrad.Text, txtNome.Text);
+            }
+            else //Novo militar
+            {
+                sucesso = militar.AdicionaMilitar(txtGrad.Text, txtNome.Text);
+            }
+
+            if (sucesso)
             {
                 MessageBox.Show("Militar salvo com sucesso!");
             }

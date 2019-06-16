@@ -81,5 +81,20 @@ namespace Sistema_de_Gerênciamento_de_Militares
         {
 
         }
+
+        /// <summary>
+        /// Editar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            string id = dataGridView1.SelectedRows[0].Cells["id"].Value.ToString();
+
+            frmGerenciarMilitar frm = new frmGerenciarMilitar(gerenciamento.GetDTO(id));
+            frm.ShowDialog();
+
+            AtualizaDataGrid();
+        }
     }
 }

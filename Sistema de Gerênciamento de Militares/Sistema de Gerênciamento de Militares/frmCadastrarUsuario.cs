@@ -16,11 +16,26 @@ namespace Sistema_de_Gerênciamento_de_Militares
     {
         private Usuario user;
 
+        private int idUsuario = 0;
+
         public frmCadastrarUsuario()
         {
             InitializeComponent();
 
             user = new Usuario();
+        }
+
+        public frmCadastrarUsuario(DTOUsuario dto)
+        {
+            InitializeComponent();
+            user = new Usuario();
+
+            idUsuario = dto.Id;
+            txtUsuario.Text = dto.Nome;
+            txtSenha.Text = dto.Senha;
+
+            rdAdmin.Checked = dto.IsAdmin;
+            rdUsu.Checked = !dto.IsAdmin;
         }
 
         private void BVoltar_Click(object sender, EventArgs e)
@@ -30,9 +45,27 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         private void BSalvar_Click(object sender, EventArgs e)
         {
-            if (user.AdicionaUsuario(txtUsuario.Text, txtSenha.Text))
+            DTOUsuario dto = new DTOUsuario
             {
-                MessageBox.Show("Usuário adicionado com sucesso!");
+                Id = idUsuario,
+                Nome = txtUsuario.Text,
+                Senha = txtSenha.Text,
+                Tipo = rdAdmin.Checked ? 2 : 1 // Admin 2 | User 1
+            };
+
+            bool sucesso;
+            if (idUsuario > 0)
+            {
+                sucesso = user.EditaUsuario(dto);
+            }
+            else
+            {
+                sucesso = user.AdicionaUsuario(dto);
+            }
+
+            if (sucesso)
+            {
+                MessageBox.Show("Usuário salvo com sucesso!");
                 this.Close();
             }
             else

@@ -32,9 +32,12 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         private void btnEntrarLogin_Click(object sender, EventArgs e)
         {
-            if (user.UsuarioValido(txtbUsuarioLogin.Text, txtbSenhaLogin.Text))
+            DTOUsuario dto = user.GetDTO(txtbUsuarioLogin.Text, txtbSenhaLogin.Text);
+
+            if (dto != null)
             {
-                frmTelaInicial TelaInicial = new frmTelaInicial();
+                
+                frmTelaInicial TelaInicial = new frmTelaInicial(dto);
                 this.Hide();
                 TelaInicial.ShowDialog();
                 this.Close();

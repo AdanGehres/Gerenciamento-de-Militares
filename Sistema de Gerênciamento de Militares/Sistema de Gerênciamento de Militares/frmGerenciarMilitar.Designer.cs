@@ -49,9 +49,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(27, 75);
+            this.label1.Location = new System.Drawing.Point(20, 61);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 18);
+            this.label1.Size = new System.Drawing.Size(117, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome de Guerra:";
             // 
@@ -59,9 +60,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(125, 18);
+            this.label3.Location = new System.Drawing.Point(94, 15);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(292, 33);
+            this.label3.Size = new System.Drawing.Size(233, 27);
             this.label3.TabIndex = 2;
             this.label3.Text = "GERENCIAR MILITAR";
             // 
@@ -69,9 +71,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(27, 136);
+            this.label5.Location = new System.Drawing.Point(20, 110);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 18);
+            this.label5.Size = new System.Drawing.Size(114, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "Motivo da Saída:";
             // 
@@ -79,9 +82,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(27, 190);
+            this.label6.Location = new System.Drawing.Point(20, 154);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 18);
+            this.label6.Size = new System.Drawing.Size(100, 15);
             this.label6.TabIndex = 5;
             this.label6.Text = "Horário Saída:";
             // 
@@ -89,38 +93,39 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(27, 252);
+            this.label7.Location = new System.Drawing.Point(20, 205);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 18);
+            this.label7.Size = new System.Drawing.Size(95, 15);
             this.label7.TabIndex = 6;
             this.label7.Text = "Horário Volta:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(327, 55);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(245, 45);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(255, 338);
+            this.pictureBox1.Size = new System.Drawing.Size(191, 275);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // txtMotivo
             // 
-            this.txtMotivo.Location = new System.Drawing.Point(214, 132);
-            this.txtMotivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMotivo.Location = new System.Drawing.Point(160, 107);
+            this.txtMotivo.Margin = new System.Windows.Forms.Padding(2);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(217, 22);
+            this.txtMotivo.Size = new System.Drawing.Size(164, 20);
             this.txtMotivo.TabIndex = 9;
             // 
             // bVoltar
             // 
             this.bVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bVoltar.Location = new System.Drawing.Point(279, 308);
-            this.bVoltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bVoltar.Location = new System.Drawing.Point(209, 250);
+            this.bVoltar.Margin = new System.Windows.Forms.Padding(2);
             this.bVoltar.Name = "bVoltar";
-            this.bVoltar.Size = new System.Drawing.Size(87, 39);
+            this.bVoltar.Size = new System.Drawing.Size(65, 32);
             this.bVoltar.TabIndex = 17;
             this.bVoltar.Text = "Voltar";
             this.bVoltar.UseVisualStyleBackColor = true;
@@ -129,10 +134,10 @@
             // bSalvar
             // 
             this.bSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bSalvar.Location = new System.Drawing.Point(35, 308);
-            this.bSalvar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bSalvar.Location = new System.Drawing.Point(26, 250);
+            this.bSalvar.Margin = new System.Windows.Forms.Padding(2);
             this.bSalvar.Name = "bSalvar";
-            this.bSalvar.Size = new System.Drawing.Size(87, 39);
+            this.bSalvar.Size = new System.Drawing.Size(65, 32);
             this.bSalvar.TabIndex = 18;
             this.bSalvar.Text = "Salvar";
             this.bSalvar.UseVisualStyleBackColor = true;
@@ -141,10 +146,10 @@
             // bLimpar
             // 
             this.bLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bLimpar.Location = new System.Drawing.Point(159, 308);
-            this.bLimpar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bLimpar.Location = new System.Drawing.Point(119, 250);
+            this.bLimpar.Margin = new System.Windows.Forms.Padding(2);
             this.bLimpar.Name = "bLimpar";
-            this.bLimpar.Size = new System.Drawing.Size(87, 39);
+            this.bLimpar.Size = new System.Drawing.Size(65, 32);
             this.bLimpar.TabIndex = 22;
             this.bLimpar.Text = "Limpar";
             this.bLimpar.UseVisualStyleBackColor = true;
@@ -152,22 +157,23 @@
             // 
             // cmbNomedeGuerra
             // 
+            this.cmbNomedeGuerra.DisplayMember = "teste";
             this.cmbNomedeGuerra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNomedeGuerra.FormattingEnabled = true;
-            this.cmbNomedeGuerra.Location = new System.Drawing.Point(214, 69);
-            this.cmbNomedeGuerra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbNomedeGuerra.Location = new System.Drawing.Point(160, 56);
+            this.cmbNomedeGuerra.Margin = new System.Windows.Forms.Padding(2);
             this.cmbNomedeGuerra.Name = "cmbNomedeGuerra";
-            this.cmbNomedeGuerra.Size = new System.Drawing.Size(217, 24);
+            this.cmbNomedeGuerra.Size = new System.Drawing.Size(164, 21);
             this.cmbNomedeGuerra.TabIndex = 23;
             // 
             // dtpSaida
             // 
             this.dtpSaida.CustomFormat = "HH:mm";
             this.dtpSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSaida.Location = new System.Drawing.Point(214, 190);
-            this.dtpSaida.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpSaida.Location = new System.Drawing.Point(160, 154);
             this.dtpSaida.Name = "dtpSaida";
-            this.dtpSaida.Size = new System.Drawing.Size(217, 22);
+            this.dtpSaida.ShowUpDown = true;
+            this.dtpSaida.Size = new System.Drawing.Size(164, 20);
             this.dtpSaida.TabIndex = 24;
             this.dtpSaida.ValueChanged += new System.EventHandler(this.dtpSaida_ValueChanged);
             // 
@@ -175,17 +181,17 @@
             // 
             this.dtpVolta.CustomFormat = "HH:mm";
             this.dtpVolta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVolta.Location = new System.Drawing.Point(214, 252);
-            this.dtpVolta.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpVolta.Location = new System.Drawing.Point(160, 205);
             this.dtpVolta.Name = "dtpVolta";
-            this.dtpVolta.Size = new System.Drawing.Size(217, 22);
+            this.dtpVolta.ShowUpDown = true;
+            this.dtpVolta.Size = new System.Drawing.Size(164, 20);
             this.dtpVolta.TabIndex = 24;
             // 
             // frmGerenciarMilitar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 428);
+            this.ClientSize = new System.Drawing.Size(436, 348);
             this.Controls.Add(this.dtpVolta);
             this.Controls.Add(this.dtpSaida);
             this.Controls.Add(this.cmbNomedeGuerra);
@@ -200,7 +206,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmGerenciarMilitar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gerenciamento de Militares";

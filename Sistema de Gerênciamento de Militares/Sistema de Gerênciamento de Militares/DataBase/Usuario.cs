@@ -16,9 +16,24 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             My = new MySQL();
         }
 
-        public bool AdicionaUsuario(string nome, string senha, string text)
+        public bool AdicionaUsuario(DTOUsuario dto)
         {
-            string sql = $"INSERT INTO usuario VALUES(DEFAULT, '{nome}', '{senha}');";
+            string sql = $@"INSERT INTO usuario VALUES (DEFAULT
+                                                     , '{dto.Nome}'
+                                                     , '{dto.Senha}'
+                                                     , '{dto.Tipo}'
+                                                );";
+
+            return My.ExecuteNonQuery(sql);
+        }
+
+        public bool EditaUsuario(DTOUsuario dto)
+        {
+            string sql = $@"UPDATE usuario
+                               SET nome = '{dto.Nome}'
+                                 , senha = '{dto.Senha}'
+                                 , tipo = {dto.Tipo}
+                               WHERE id = {dto.Id};";
 
             return My.ExecuteNonQuery(sql);
         }
@@ -34,17 +49,12 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
         {
             DataTable dt = new DataTable();
 
-            string sql = "SELECT id, nome FROM usuario;";
+            string sql = "SELECT id, nome, tipo FROM usuario;";
 
             dt = My.GetDataTable(sql);
 
             My.FechaConexao();
             return dt;
-        }
-
-        internal bool AdicionaUsuario(string text1, string text2)
-        {
-            throw new NotImplementedException();
         }
 
         public bool UsuarioValido(string user, string pass)
@@ -64,6 +74,64 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
 
             My.FechaConexao();
             return ret;
+        }
+
+        public DTOUsuario GetDTO(string user, string pass)
+        {
+            DTOUsuario dto = new DTOUsuario();
+
+            if (UsuarioValido(user, pass))
+            {
+                string sql = $@"SELECT *
+                               FROM usuario
+                               WHERE nome = '{user}'
+                                 AND senha = '{pass}';";
+
+                My.ExecuteReader(sql);
+
+                if (My.HasRows())
+                {
+                    My.ReadNextRecord();
+
+                    dto.Id = My.GetInt("id");
+                    dto.Nome = My.GetString("nome");
+                    dto.Tipo = My.GetInt("tipo");
+                    dto.Senha = My.GetString("senha");
+                }
+
+                My.FechaConexao();
+            }
+            else
+            {
+                dto = null;
+            }
+
+            return dto;
+        }
+
+        public DTOUsuario GetDTO(string id)
+        {
+            DTOUsuario dto = new DTOUsuario();
+
+            string sql = $@"SELECT *
+                               FROM usuario
+                               WHERE id = '{id}';";
+
+            My.ExecuteReader(sql);
+
+            if (My.HasRows())
+            {
+                My.ReadNextRecord();
+
+                dto.Id = My.GetInt("id");
+                dto.Nome = My.GetString("nome");
+                dto.Tipo = My.GetInt("tipo");
+                dto.Senha = My.GetString("senha");
+            }
+
+            My.FechaConexao();
+
+            return dto;
         }
     }
 }

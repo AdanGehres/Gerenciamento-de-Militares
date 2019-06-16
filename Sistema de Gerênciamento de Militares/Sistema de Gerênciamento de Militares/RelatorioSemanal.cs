@@ -14,41 +14,58 @@ namespace Sistema_de_Gerênciamento_de_Militares
 {
     public class RelatorioSemanal
     {
-        public void GeraRelatorio()
+
+        private Document doc;
+
+        public string Caminho { get; set; }
+
+        public RelatorioSemanal()
         {
             //Cria documento e estipula tipo da folha
-            Document doc = new Document(PageSize.A4);
+            doc = new Document(PageSize.A4);
             doc.SetMargins(40, 40, 40, 80); //Tamanho das margens
             doc.AddCreationDate(); //Adiciona as configurações
 
             //caminho onde sera criado o pdf + nome desejado
             //OBS: o nome sempre deve ser terminado com .pdf
-            string caminho = @"relatorio.pdf";
+            Caminho = @"relatorio.pdf";
 
             //criando o arquivo pdf embranco, passando como parametro a variavel                
             //doc criada acima e a variavel caminho 
             //tambem criada acima.
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(caminho, FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(Caminho, FileMode.Create));
 
             doc.Open();
+        }
 
-            //criando uma string vazia
-            string dados = "";
-
-            //criando a variavel para paragrafo
-            Paragraph paragrafo = new Paragraph(dados, new Font(Font.NORMAL, 14))
+        public void AddCabecalho(string conteudoLinha)
+        {
+            BaseFont font = BaseFont.CreateFont(BaseFont.COURIER_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Paragraph paragrafo = new Paragraph("", new Font(font, 10))
             {
                 Alignment = Element.ALIGN_JUSTIFIED
             };
 
-
-            paragrafo.Add("TESTE TESTE TESTE");
-            
+            paragrafo.Add(conteudoLinha);
             doc.Add(paragrafo);
-            
+        }
+
+        public void AddLinha(string conteudoLinha)
+        {
+            Paragraph paragrafo = new Paragraph("", new Font(Font.NORMAL, 10))
+            {
+                Alignment = Element.ALIGN_JUSTIFIED
+            };
+
+            paragrafo.Add(conteudoLinha);
+            doc.Add(paragrafo);
+        }
+
+        public void FinalizaRelatorio()
+        {
             doc.Close();
 
-            System.Diagnostics.Process.Start(caminho);
+            System.Diagnostics.Process.Start(Caminho);
         }
     }
 }

@@ -19,9 +19,7 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmTelaInicial TelaInicial = new frmTelaInicial();
-            this.Hide();
-            TelaInicial.ShowDialog();
+            Close();
         }
     }
 }

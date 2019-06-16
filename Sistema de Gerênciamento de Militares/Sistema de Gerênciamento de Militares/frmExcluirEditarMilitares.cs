@@ -32,9 +32,23 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
         #region Botões
 
-        private void BPesquisar_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Editar Militar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button3_Click(object sender, EventArgs e)
         {
+            //Obtém o nome do militar selecionado pelo usuário
+            string id = dataGridView1.SelectedRows[0].Cells["id"].Value.ToString();
 
+            DTOMilitar militarAtual = militar.GetDTO(id);
+
+            frmCadastrarMilitar cad = new frmCadastrarMilitar(militarAtual);
+            cad.ShowDialog();
+
+            //Atualiza a tela
+            AtualizaDataGrid();
         }
 
         private void BExcluir_Click(object sender, EventArgs e)

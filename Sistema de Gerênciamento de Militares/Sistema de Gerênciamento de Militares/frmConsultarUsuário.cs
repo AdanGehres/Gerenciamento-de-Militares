@@ -40,7 +40,7 @@ namespace Sistema_de_Gerênciamento_de_Militares
             //Verifica se o usuário selecionou uma linha
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string id = dataGridView1.SelectedRows[0].Cells["id"].Value.ToString();
 
                 if (user.DeletaUsuario(id))
                 {
@@ -57,6 +57,16 @@ namespace Sistema_de_Gerênciamento_de_Militares
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            string id = dataGridView1.SelectedRows[0].Cells["id"].Value.ToString();
+
+            frmCadastrarUsuario frm = new frmCadastrarUsuario(user.GetDTO(id));
+            frm.ShowDialog();
+
+            AtualizaDataGrid();
         }
     }
 }

@@ -24,6 +24,8 @@ namespace Sistema_de_Gerênciamento_de_Militares
         /// </summary>
         private readonly Gerenciamento gerenciamento;
 
+        private int idGerenciamento = 0;
+
         public frmGerenciarMilitar()
         {
             InitializeComponent();
@@ -33,6 +35,24 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
             cmbNomedeGuerra = militar.CBoxNomeMilitares(cmbNomedeGuerra);
             LimparTela();
+        }
+
+        public frmGerenciarMilitar(DTOGerenciamento dto)
+        {
+            InitializeComponent();
+            militar = new Militar();
+            gerenciamento = new Gerenciamento();
+
+            idGerenciamento = dto.Id;
+
+            DTOMilitar dtoMilitar = militar.GetDTO(dto.IdMilitar.ToString());
+            cmbNomedeGuerra.Items.Add(dtoMilitar.GradNome);
+            cmbNomedeGuerra.SelectedIndex = 0;
+            cmbNomedeGuerra.Enabled = false;
+
+            txtMotivo.Text = dto.Motivo;
+            dtpSaida.Value = dto.Saida;
+            dtpVolta.Value = dto.Retorno;
         }
 
         #region Botões
@@ -45,7 +65,26 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
                 int id = militar.GetIdByName(cmbNomedeGuerra.Text);
 
-                if(gerenciamento.Insert(militar: id, motivo: txtMotivo.Text, saida: saida, retorno: volta))
+                bool sucesso;
+
+                if(idGerenciamento > 0) //Edição
+                {
+                    DTOGerenciamento dto = new DTOGerenciamento
+                    {
+                        Id = idGerenciamento,
+                        Motivo = txtMotivo.Text,
+                        Saida = saida,
+                        Retorno = volta
+                    };
+
+                    sucesso = gerenciamento.Update(dto);
+                }
+                else //novo gerenciamento
+                {
+                    sucesso = gerenciamento.Insert(militar: id, motivo: txtMotivo.Text, saida: saida, retorno: volta);
+                }
+
+                if(sucesso)
                 {
                     MessageBox.Show("Gerenciamento salvo com sucesso!");
                     LimparTela();
@@ -88,7 +127,7 @@ namespace Sistema_de_Gerênciamento_de_Militares
         private bool TelaValida()
         {
             if (!CampoPreenchido(cmbNomedeGuerra, "Nome de Guerra")) return false;
-            if (!CampoPreenchido(txtMotivo, "Motivo")) return false;
+            //if (!CampoPreenchido(txtMotivo, "Motivo")) return false;
             if (!CampoPreenchido(dtpSaida, "Horário de Saída")) return false;
             if (!CampoPreenchido(dtpVolta, "Horário de Volta")) return false;
 

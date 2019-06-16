@@ -26,8 +26,8 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
         {
             string ip = "127.0.0.1";
             string dBase = "militar";
-            string user = "root";
-            string pass = "";
+            string user = "imed";
+            string pass = "imed10741961";
 
             string connString = $@"server={ip};database={dBase};Uid={user};Pwd={pass}";
             Connection = new MySqlConnection(connString);
@@ -53,9 +53,9 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             {
                 Connection.Close();
             }
-            catch
+            catch (Exception e)
             {
-
+                MessageBox.Show("Houve um erro ao fechar a conexão:\n" + e);
             }
         }
 

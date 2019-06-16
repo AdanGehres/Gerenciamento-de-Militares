@@ -25,6 +25,15 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             return My.ExecuteNonQuery(sql);
         }
 
+        public bool EditaMilitar(int id, string grad, string nome)
+        {
+            string sql = $@"UPDATE MILITAR SET nome = '{nome}'
+                                             , graduacao = '{grad}'
+                                           WHERE id = {id}";
+
+            return My.ExecuteNonQuery(sql);
+        }
+
         public int GetIdByName(string nome)
         {
             int id = 0;
@@ -58,6 +67,31 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             My.FechaConexao();
 
             return dt;
+        }
+
+        public DTOMilitar GetDTO(string id)
+        {
+            DTOMilitar dto = new DTOMilitar();
+
+            string sql = $@"SELECT *
+                               FROM MILITAR
+                               WHERE id = {id}
+                               ORDER BY id DESC
+                               LIMIT 1;";
+
+            My.ExecuteReader(sql);
+
+            if (My.HasRows())
+            {
+                My.ReadNextRecord();
+                dto.Id = My.GetInt("id");
+                dto.Graduacao = My.GetString("graduacao");
+                dto.Nome = My.GetString("nome"); 
+            }
+
+            My.FechaConexao();
+
+            return dto;
         }
 
         public bool ExcluiMilitar(string id)

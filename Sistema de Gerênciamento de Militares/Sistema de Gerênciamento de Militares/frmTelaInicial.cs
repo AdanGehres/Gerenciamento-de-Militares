@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_de_Gerênciamento_de_Militares.DataBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace Sistema_de_Gerênciamento_de_Militares
 {
     public partial class frmTelaInicial : Form
     {
-        public frmTelaInicial()
+        public frmTelaInicial(DTOUsuario dto)
         {
             InitializeComponent();
+
+            if (!dto.IsAdmin)
+            {
+                sobreToolStripMenuItem1.Visible = false;
+            }
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
