@@ -76,5 +76,10 @@ namespace Sistema_de_Gerênciamento_de_Militares
         {
             AtualizaDataGrid();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

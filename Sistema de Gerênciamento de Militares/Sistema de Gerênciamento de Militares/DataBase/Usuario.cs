@@ -16,7 +16,7 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             My = new MySQL();
         }
 
-        public bool AdicionaUsuario(string nome, string senha)
+        public bool AdicionaUsuario(string nome, string senha, string text)
         {
             string sql = $"INSERT INTO usuario VALUES(DEFAULT, '{nome}', '{senha}');";
 
@@ -42,6 +42,10 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
             return dt;
         }
 
+        internal bool AdicionaUsuario(string text1, string text2)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool UsuarioValido(string user, string pass)
         {

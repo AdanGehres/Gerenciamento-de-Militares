@@ -42,5 +42,10 @@ namespace Sistema_de_Gerênciamento_de_Militares
 
             this.Close();
         }
+
+        private void frmCadastrarMilitar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

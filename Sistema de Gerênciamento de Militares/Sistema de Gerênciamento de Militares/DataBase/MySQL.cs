@@ -26,8 +26,8 @@ namespace Sistema_de_Gerênciamento_de_Militares.DataBase
         {
             string ip = "127.0.0.1";
             string dBase = "militar";
-            string user = "exemplomilitar";
-            string pass = "militar123";
+            string user = "root";
+            string pass = "";
 
             string connString = $@"server={ip};database={dBase};Uid={user};Pwd={pass}";
             Connection = new MySqlConnection(connString);

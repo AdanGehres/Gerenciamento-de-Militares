@@ -40,8 +40,8 @@ namespace Sistema_de_Gerênciamento_de_Militares
         {
             if (TelaValida())
             {
-                DateTime saida = MontaData(dtpData.Value, dtpSaida.Value);
-                DateTime volta = MontaData(dtpData.Value, dtpVolta.Value);
+                DateTime saida =  dtpSaida.Value;
+                DateTime volta =  dtpVolta.Value;
 
                 int id = militar.GetIdByName(cmbNomedeGuerra.Text);
 
@@ -55,6 +55,7 @@ namespace Sistema_de_Gerênciamento_de_Militares
                     MessageBox.Show("Houve um erro ao salvar");
                 }
             }
+            this.Close();
         }
 
         private void BLimpar_Click(object sender, EventArgs e)
@@ -79,7 +80,6 @@ namespace Sistema_de_Gerênciamento_de_Militares
         private void LimparTela()
         {
             cmbNomedeGuerra.SelectedIndex = -1;
-            dtpData.Value = DateTime.Now;
             txtMotivo.Text = "";
             dtpSaida.Value = Convert.ToDateTime("00:00");
             dtpVolta.Value = Convert.ToDateTime("00:00");
@@ -88,7 +88,6 @@ namespace Sistema_de_Gerênciamento_de_Militares
         private bool TelaValida()
         {
             if (!CampoPreenchido(cmbNomedeGuerra, "Nome de Guerra")) return false;
-            if (!CampoPreenchido(dtpData, "Data de Saída")) return false;
             if (!CampoPreenchido(txtMotivo, "Motivo")) return false;
             if (!CampoPreenchido(dtpSaida, "Horário de Saída")) return false;
             if (!CampoPreenchido(dtpVolta, "Horário de Volta")) return false;
@@ -127,5 +126,15 @@ namespace Sistema_de_Gerênciamento_de_Militares
         }
 
         #endregion
+
+        private void dtpData_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpSaida_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

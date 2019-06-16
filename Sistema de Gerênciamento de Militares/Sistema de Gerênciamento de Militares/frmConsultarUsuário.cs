@@ -53,5 +53,10 @@ namespace Sistema_de_Gerênciamento_de_Militares
                 }
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

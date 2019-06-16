@@ -39,13 +39,15 @@
             this.txtVSenha = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.rdAdmin = new System.Windows.Forms.RadioButton();
+            this.rdUsu = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(301, 309);
+            this.button1.Location = new System.Drawing.Point(305, 353);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 40);
             this.button1.TabIndex = 0;
@@ -56,7 +58,7 @@
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(181, 309);
+            this.button2.Location = new System.Drawing.Point(179, 353);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 40);
             this.button2.TabIndex = 1;
@@ -96,15 +98,16 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(200, 113);
+            this.txtUsuario.Location = new System.Drawing.Point(210, 113);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(221, 22);
             this.txtUsuario.TabIndex = 5;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(200, 171);
+            this.txtSenha.Location = new System.Drawing.Point(210, 173);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(221, 22);
             this.txtSenha.TabIndex = 6;
             // 
@@ -112,6 +115,7 @@
             // 
             this.txtVSenha.Location = new System.Drawing.Point(210, 236);
             this.txtVSenha.Name = "txtVSenha";
+            this.txtVSenha.PasswordChar = '*';
             this.txtVSenha.Size = new System.Drawing.Size(221, 22);
             this.txtVSenha.TabIndex = 7;
             // 
@@ -135,11 +139,37 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Cadastrar Novo Usuário";
             // 
+            // rdAdmin
+            // 
+            this.rdAdmin.AutoSize = true;
+            this.rdAdmin.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold);
+            this.rdAdmin.Location = new System.Drawing.Point(36, 303);
+            this.rdAdmin.Name = "rdAdmin";
+            this.rdAdmin.Size = new System.Drawing.Size(141, 23);
+            this.rdAdmin.TabIndex = 13;
+            this.rdAdmin.TabStop = true;
+            this.rdAdmin.Text = "Administrador";
+            this.rdAdmin.UseVisualStyleBackColor = true;
+            // 
+            // rdUsu
+            // 
+            this.rdUsu.AutoSize = true;
+            this.rdUsu.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold);
+            this.rdUsu.Location = new System.Drawing.Point(229, 303);
+            this.rdUsu.Name = "rdUsu";
+            this.rdUsu.Size = new System.Drawing.Size(91, 23);
+            this.rdUsu.TabIndex = 14;
+            this.rdUsu.TabStop = true;
+            this.rdUsu.Text = "Usuário";
+            this.rdUsu.UseVisualStyleBackColor = true;
+            // 
             // frmCadastrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 428);
+            this.Controls.Add(this.rdUsu);
+            this.Controls.Add(this.rdAdmin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtVSenha);
             this.Controls.Add(this.txtSenha);
@@ -172,5 +202,7 @@
         private System.Windows.Forms.TextBox txtVSenha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton rdAdmin;
+        private System.Windows.Forms.RadioButton rdUsu;
     }
 }

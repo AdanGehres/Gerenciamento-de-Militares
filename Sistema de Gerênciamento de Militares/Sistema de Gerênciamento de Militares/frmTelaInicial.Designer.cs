@@ -74,22 +74,22 @@
             // cadastrarMilitaresToolStripMenuItem
             // 
             this.cadastrarMilitaresToolStripMenuItem.Name = "cadastrarMilitaresToolStripMenuItem";
-            this.cadastrarMilitaresToolStripMenuItem.Size = new System.Drawing.Size(258, 28);
+            this.cadastrarMilitaresToolStripMenuItem.Size = new System.Drawing.Size(311, 28);
             this.cadastrarMilitaresToolStripMenuItem.Text = "Cadastrar Militares";
             this.cadastrarMilitaresToolStripMenuItem.Click += new System.EventHandler(this.cadastrarMilitaresToolStripMenuItem_Click);
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(258, 28);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(311, 28);
             this.adicionarToolStripMenuItem.Text = "Gerenciar Militares";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // excluirEditarMilitaresToolStripMenuItem1
             // 
             this.excluirEditarMilitaresToolStripMenuItem1.Name = "excluirEditarMilitaresToolStripMenuItem1";
-            this.excluirEditarMilitaresToolStripMenuItem1.Size = new System.Drawing.Size(258, 28);
-            this.excluirEditarMilitaresToolStripMenuItem1.Text = "Excluir/Editar Militares";
+            this.excluirEditarMilitaresToolStripMenuItem1.Size = new System.Drawing.Size(311, 28);
+            this.excluirEditarMilitaresToolStripMenuItem1.Text = "Excluir Militares Cadastrados";
             this.excluirEditarMilitaresToolStripMenuItem1.Click += new System.EventHandler(this.excluirEditarMilitaresToolStripMenuItem1_Click);
             // 
             // consultarToolStripMenuItem
